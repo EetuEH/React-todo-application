@@ -19,11 +19,21 @@ function Todo() {
         setItems(Arr);
     }
 
+    const completeItem= (itemId) =>{
+        let updatedItems=items.map((item) => {
+            if(item.id === itemId){
+                item.isCompleted= !item.isCompleted;
+            }
+        return item;
+        });
+        setItems(updatedItems);
+    }
+
     return(
         <div>
             <h1 className='header'>To-do lista</h1>
             <TodoForm onSubmit={addItem}/>
-            <TodoList items={items} updateItem={updateItem} removeItem={removeItem}/>
+            <TodoList items={items} updateItem={updateItem} removeItem={removeItem} completeItem={completeItem} />
         </div>
     )
 }
