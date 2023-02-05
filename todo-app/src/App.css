@@ -1,7 +1,7 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   width: 520px;
   min-height: 600px;
   background-color: white;
@@ -9,4 +9,9 @@
   margin: 90px auto;
   border-radius: 10px;
   padding-bottom: 32px;
+}
+
+.header{
+  margin: 32px 0;
+  font-size: 24px;
 }

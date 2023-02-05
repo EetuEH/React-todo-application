@@ -12,7 +12,7 @@ function Todo() {
 
     return(
         <div>
-            <h1>To-do lista</h1>
+            <h1 className='header'>To-do lista</h1>
             <TodoForm onSubmit={addItem}/>
             <TodoList items={items}/>
         </div>
