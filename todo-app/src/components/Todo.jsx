@@ -22,7 +22,7 @@ function Todo() {
     const completeItem= (itemId) =>{
         let updatedItems=items.map((item) => {
             if(item.id === itemId){
-                item.isCompleted= !item.isCompleted;
+                item.isComplete= !item.isComplete;
             }
         return item;
         });
