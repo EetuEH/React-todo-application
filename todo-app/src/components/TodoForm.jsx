@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 function TodoForm(props) {
-    const [input, setInput] = useState();
+    const [input, setInput] = useState(props.edit?props.edit.value:"");
     const inputRef= useRef(null);
 
     const inputHandler= (i) => {
@@ -17,11 +17,16 @@ function TodoForm(props) {
     }
 
     return (
-        <form>
+        <form className="todo_form">
+            {props.edit?(
             <>
-            <input placeholder='Lisättävä tehtävä' value={input} onChange={inputHandler} name="text" ref={inputRef}/>
-            <button onClick={submitHandler}>+</button>
-            </>
+            <input placeholder='Päivitettävä tehtävä' value={input} onChange={inputHandler} name="text" ref={inputRef} className="input-edit" />
+            <button onClick={submitHandler} className="edit-button">Päivitä</button>
+            </>):(
+            <>
+            <input placeholder='Lisättävä tehtävä' value={input} onChange={inputHandler} name="text" ref={inputRef} className="input-add" />
+            <button onClick={submitHandler} className="add-button">Lisää</button>
+            </>)}
         </form>
     )
 }

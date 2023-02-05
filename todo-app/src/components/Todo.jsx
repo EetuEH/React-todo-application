@@ -10,11 +10,20 @@ function Todo() {
         setItems(newItems);
     }
 
+    const updateItem=(itemId, value) =>{
+        setItems((prev) => prev.map((todo) => (todo.id===itemId?value:todo)));
+    }
+
+    const removeItem= (itemId) =>{
+        const Arr=[...items].filter((item) => item.id !== itemId);
+        setItems(Arr);
+    }
+
     return(
         <div>
             <h1 className='header'>To-do lista</h1>
             <TodoForm onSubmit={addItem}/>
-            <TodoList items={items}/>
+            <TodoList items={items} updateItem={updateItem} removeItem={removeItem}/>
         </div>
     )
 }
